@@ -21,7 +21,7 @@ import * as shellEscape from 'shell-escape';
 
 import {
 	buildOclifInstaller,
-	buildPkg,
+	buildStandaloneZip,
 	fixPathForMsys,
 	ROOT,
 } from './build-bin';
@@ -76,7 +76,7 @@ export async function run(args?: string[]) {
 	}
 	const commands: { [cmd: string]: () => void } = {
 		'build:installer': buildOclifInstaller,
-		'build:standalone': buildPkg,
+		'build:standalone': buildStandaloneZip,
 		release,
 	};
 	for (const arg of args) {
@@ -114,7 +114,13 @@ export async function run(args?: string[]) {
 				throw new Error('the MSYS2_PATH_TYPE env var must be set to "inherit"');
 			}
 		}
-		await commands[arg]();
+		const cmdFunc = commands[arg];
+		try {
+			await cmdFunc();
+		} catch (err) {
+			console.log(`Error running command "${arg}": ${err}`);
+			process.exit(1);
+		}
 	}
 }
 
