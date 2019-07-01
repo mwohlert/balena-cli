@@ -1,4 +1,48 @@
 - commits:
+    - subject: 'balena CI: Add balena-cli executable signing step'
+      hash: 133d04a80acac6ccecc048ede327cd36d5de3dd1
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Paulo Castro <paulo@balena.io>
+        signed-off-by: Paulo Castro <paulo@balena.io>
+      author: Paulo Castro
+    - subject: Add 'npm run package' command
+      hash: 143283c32cf204957e775f811d2a0491197c2168
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Paulo Castro <paulo@balena.io>
+        signed-off-by: Paulo Castro <paulo@balena.io>
+      author: Paulo Castro
+    - subject: 'Refactor build:standalone / build:installer / run release'
+      hash: 47df219d642445d40b2dd6e057d1f3996e522502
+      body: |
+        So that:
+        - Standalone zip files are created in the standalone step,
+        - oclif installers are renamed in the installer step, and
+        - npm run release (which is skipped by balena CI) is reduced to
+          uploading the files to the GitHub releases page.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Paulo Castro <paulo@balena.io>
+        signed-off-by: Paulo Castro <paulo@balena.io>
+      author: Paulo Castro
+    - subject: 'balena CI integration: Use C:\tmp to avoid 260-char path length limit'
+      hash: 797f81709190b8400110caebef27b1bae951c93f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Paulo Castro <paulo@balena.io>
+        signed-off-by: Paulo Castro <paulo@balena.io>
+      author: Paulo Castro
+  version: 11.5.0
+  date: 2019-07-01T12:42:52.225Z
+- commits:
     - subject: >-
         Fix "Error: Cannot find module 'web-streams-polyfill'" Fix
         npm-shrinkwrap.json produced by npm v6.4.1, by using npm v6.9.0
